@@ -1,15 +1,26 @@
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon, Fan } from "lucide-react";
 
 function Tasks(props) {
   return (
-    <ul className="space-y-4 p-6 bg-slate-200 rounded-md shadow red">
+    <ul className="space-y-5 p-6 bg-gray-950 rounded-md">
       {props.tasks.map((task) => (
-        <li key={task.id} className="flex">
-          <button className="bg-slate-400 w-full text-left text-white p-2 rounded-md">
+        <li key={task.id} className="flex gap-2">
+          <button
+            onClick={() => props.onTaskClick(task.id)}
+            className={`bg-slate-400 w-full text-left text-black p-2 rounded-md 
+              ${task.isCompleted && "line-through"}`}
+          >
             {task.title}
+            {task.isCompleted ? " Is Completed" : " Is Not Completed"}
           </button>
-          <button>
-            <ChevronRightIcon className="bg-slate-400 P-2 rounded-md text-white"></ChevronRightIcon>
+          <button className="bg-slate-400 P-2 rounded-md text-black">
+            <ChevronRightIcon />
+          </button>
+          <button
+            onClick={() => props.onDeleteTaskClick(task.id)}
+            className="bg-slate-400 P-2 rounded-md text-black"
+          >
+            <Fan />
           </button>
         </li>
       ))}
