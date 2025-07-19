@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Input from "./inputs";
+import Input from "./Inputs";
 import BlockOriginal from "./BlockOriginal";
 
 function AddTask({ onAddTaskSubmit }) {
